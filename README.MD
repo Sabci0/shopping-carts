@@ -1,0 +1,1 @@
+## Simple shop card model
