@@ -5,7 +5,7 @@ let basket = JSON.parse(localStorage.getItem("data")) || [];
 let generateShop = () =>{
     return (shopRef.innerHTML = shopItemsData.map((x)=>{
         let { id, name, price, desc, img } =x;
-        let search = basket.find(()=>x.id === id) || [];
+        let search = basket.find((x)=>x.id === id) || [];
         return `
         <div id=product-id-${id} class="shop__item">
             <img width="220" src="${img}" alt="">
@@ -13,7 +13,7 @@ let generateShop = () =>{
                 <h3>${name}</h3>
                 <p>${desc}</p>
                 <div class="price-quantity">
-                    <h2>${price}</h2>
+                    <h2>$ ${price}</h2>
                     <div class="buttons">
                         <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                         <div id=${id} class="quantity">${search.item === undefined ? 0: search.item}</div>
